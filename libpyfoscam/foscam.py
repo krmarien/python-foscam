@@ -115,7 +115,7 @@ class FoscamCamera(object):
                 code = int(child.text)
 
             elif child.tag != 'CGI_Result':
-                params[child.tag] = unquote(child.text)
+                params[child.tag] = unquote(child.text) if child.text is not None else None
 
         if self.verbose:
             print ('Received Foscam response: %s, %s' % (code, params))
@@ -386,12 +386,13 @@ class FoscamCamera(object):
                         time_format, time_zone, is_dst, dst, year,
                         mon, day, hour, minute, sec, callback=None):
         '''
-        Set systeim time
+        Set system time
         '''
         if ntp_server not in ['time.nist.gov',
                               'time.kriss.re.kr',
                               'time.windows.com',
                               'time.nuri.net',
+                              'Auto',
                              ]:
             raise ValueError('Unsupported ntpServer')
 

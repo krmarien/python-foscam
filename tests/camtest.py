@@ -172,11 +172,11 @@ class TestFoscam(unittest.TestCase):
     def test_ptz_selftest(self):
         self.foscam.set_ptz_selftestmode(mode=1)
         flag, kwargs = self.foscam.get_ptz_selftestmode()
-        self.assertTrue('mode' in kwargs and int(kwargs['mode']) is 1)
+        self.assertTrue('mode' in kwargs and int(kwargs['mode']) == 1)
 
         self.foscam.set_ptz_selftestmode(mode=0)
         flag, kwargs = self.foscam.get_ptz_selftestmode()
-        self.assertTrue('mode' in kwargs and int(kwargs['mode']) is 0)
+        self.assertTrue('mode' in kwargs and int(kwargs['mode']) == 0)
 
     # ***************** Test device manage ******************
 
@@ -199,7 +199,7 @@ class TestFoscam(unittest.TestCase):
                                     )
 
     def test_devname(self):
-        args = self.foscam.get_dev_name()
+        rc, args = self.foscam.get_dev_name()
         self.foscam.set_dev_name('dev cam')
         self.foscam.get_dev_name()
         self.foscam.set_dev_name(args['devName'])
@@ -277,7 +277,7 @@ class TestFoscam(unittest.TestCase):
     def test_get_h264_frm_ref_mode(self):
         rc, args = self.foscam.get_h264_frm_ref_mode()
         self.assertEqual(rc, 0)
-        self.assertEqual(args.keys(), ['mode'])
+        self.assertEqual(list(args.keys()), ['mode'])
 
     def test_set_h264_frm_ref_mode(self):
         mode = 3
