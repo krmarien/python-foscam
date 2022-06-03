@@ -609,7 +609,6 @@ class FoscamCamera(object):
         '''
         return self.execute_command('zoomIn', callback=callback)
 
-
     def ptz_zoom_out(self, callback=None):
         '''
         Move to bottom right.
@@ -621,6 +620,18 @@ class FoscamCamera(object):
         Stop run PT
         '''
         return self.execute_command('zoomStop', callback=callback)
+
+    def ptz_sleep(self, callback=None):
+        '''
+        Rotate to sleep position and sleep
+        '''
+        return self.execute_command('alexaSleep', callback=callback)
+
+    def ptz_wake_up(self, callback=None):
+        '''
+        Wakup camera
+        '''
+        return self.execute_command('alexaWakeUp', callback=callback)
 
 
     # *************** AV Function *******************
