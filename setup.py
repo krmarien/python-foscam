@@ -21,11 +21,12 @@ CLASSIFIERS = [
     "Programming Language :: Python :: 2",
     "Programming Language :: Python :: 2.6",
     "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3",
 ]
 
 setup(
     name='libpyfoscam',
-    version='1.1',
+    version='1.2',
     description='Python Library for Foscam IP Cameras',
     long_description=open('README.rst', 'r').read(),
     author='Viswanathan S',
