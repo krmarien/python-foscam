@@ -26,12 +26,12 @@ CLASSIFIERS = [
 
 setup(
     name='libpyfoscam',
-    version='1.2',
+    version='1.2.1',
     description='Python Library for Foscam IP Cameras',
     long_description=open('README.rst', 'r').read(),
     author='Viswanathan S',
     author_email='viswa.swami@gmail.com',
-    url='https://github.com/viswa-swami/python-foscam',
+    url='https://github.com/krmarien/python-foscam',
     include_package_data=True,
     license='LGPLv3+',
     packages=find_packages(exclude=['tests']),
