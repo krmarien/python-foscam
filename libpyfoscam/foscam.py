@@ -621,17 +621,27 @@ class FoscamCamera(object):
         '''
         return self.execute_command('zoomStop', callback=callback)
 
-    def ptz_sleep(self, callback=None):
+    def sleep(self, callback=None):
         '''
         Rotate to sleep position and sleep
         '''
         return self.execute_command('alexaSleep', callback=callback)
 
-    def ptz_wake_up(self, callback=None):
+    def wake_up(self, callback=None):
         '''
         Wakup camera
         '''
         return self.execute_command('alexaWakeUp', callback=callback)
+
+    def is_asleep(self, callback=None):
+        '''
+        Wakup camera
+        '''
+        ret, data = self.execute_command('getAlexaState', callback=callback)
+
+        is_asleep = int(data['state']) == 1 if ret == 0 else False
+
+        return ret, is_asleep
 
 
     # *************** AV Function *******************
